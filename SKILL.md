@@ -17,7 +17,16 @@ python3 scripts/claude_clean_call.py "PROMPT"
 
 For a long prompt, save it to a text file and pass `--prompt-file`. Add documents with one or more `--input-file` arguments. The runner places their contents in the user message because Claude has no file tools in this mode.
 
-Keep the defaults unless the user requests a different model or effort level. The defaults are `claude-opus-4-6` and `high`.
+The default is deliberately pinned to `claude-opus-4-6` with `high` effort because this skill is most often used for prose. It is a writing-quality choice, not the newest-model default.
+
+## Choose a model
+
+- Use `claude-opus-4-6` for writing and editing unless the user asks for another model.
+- Use `opus` for demanding reasoning, analysis, or code-adjacent judgment. It is a moving alias for the latest Opus and resolved to `claude-opus-5` when tested on 2026-08-27.
+- Use `fable` only when the user asks for it or an unusually important second opinion justifies the extra usage. It resolved to `claude-fable-5` when tested on 2026-08-27. Fable may consume usage credits on a standard Team seat, so do not select it silently.
+- Use `sonnet` when speed and subscription allowance matter more than maximum quality. Use `haiku` only for simple, mechanical work.
+
+For a reproducible comparison, pass a full model ID instead of a moving alias. When current availability matters, use Claude Code's interactive `/model` picker. To verify what an alias actually used, add `--json` and inspect `modelUsage`. Do not treat a model list in the README as live account state.
 
 ## Preserve the clean boundary
 

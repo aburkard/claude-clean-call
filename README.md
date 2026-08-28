@@ -2,9 +2,21 @@
 
 A small Codex skill for asking Claude a question without bringing Claude Code's coding prompt, tools, plugins, or project context along for the ride.
 
-It uses the local Claude CLI and your existing `claude.ai` login. It does not use an Anthropic API key. The default model is `claude-opus-4-6`.
+It uses the local Claude CLI and your existing `claude.ai` login. It does not use an Anthropic API key. The default is deliberately pinned to `claude-opus-4-6` because this tool is most often used for writing.
 
 This is useful for a second opinion on writing, analysis, extraction, or any other task where you want Claude the model rather than Claude Code the agent.
+
+## Models
+
+The useful choices are:
+
+- `claude-opus-4-6`: the writing default
+- `opus`: the latest Opus for reasoning and general judgment; verified as Opus 5 on 2026-08-27
+- `fable`: the latest Fable for an occasional high-stakes second opinion; verified as Fable 5 on 2026-08-27
+- `sonnet`: a faster, lighter general-purpose choice
+- `haiku`: simple mechanical work
+
+Choose a model with `--model`. Use a full model ID when a comparison needs to be reproducible. Use Claude Code's `/model` picker for the current catalog; this list is guidance, not account discovery. Fable can consume usage credits on standard Team seats.
 
 ## Install
 
