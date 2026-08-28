@@ -60,12 +60,19 @@ def require_subscription_auth(executable: str, env: dict[str, str]) -> None:
         )
 
 
+def read_utf8(path: Path, label: str) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as error:
+        raise SystemExit(f"Could not read {label} {path}: {error}") from error
+
+
 def read_prompt(args: argparse.Namespace) -> str:
     if args.prompt and args.prompt_file:
         raise SystemExit("Use either a prompt argument or --prompt-file, not both")
 
     if args.prompt_file:
-        prompt = args.prompt_file.read_text(encoding="utf-8")
+        prompt = read_utf8(args.prompt_file, "prompt file")
     elif args.prompt:
         prompt = args.prompt
     elif not sys.stdin.isatty():
@@ -77,7 +84,7 @@ def read_prompt(args: argparse.Namespace) -> str:
         raise SystemExit("Prompt cannot be empty")
 
     for input_file in args.input_file:
-        content = input_file.read_text(encoding="utf-8")
+        content = read_utf8(input_file, "input file")
         prompt += (
             f"\n\n<document name={json.dumps(input_file.name)}>\n"
             f"{content}\n"
