@@ -23,7 +23,7 @@ The default is deliberately pinned to `claude-opus-4-6` with `high` effort becau
 
 - Use `claude-opus-4-6` for writing and editing unless the user asks for another model.
 - Use `opus` for demanding reasoning, analysis, or code-adjacent judgment. It is a moving alias for the latest Opus and resolved to `claude-opus-5` when tested on 2026-08-27.
-- Use `fable` only when the user asks for it or an unusually important second opinion justifies the extra usage. It resolved to `claude-fable-5` when tested on 2026-08-27. Fable may consume usage credits on a standard Team seat, so do not select it silently.
+- Use `fable` only when the user asks for it or an unusually important second opinion justifies the extra usage. It resolved to `claude-fable-5` when tested on 2026-08-27. Fable uses pay-as-you-go credits on a standard Team seat; a premium Team seat includes limited Fable usage in its weekly allowance. Claude's auth status does not reveal the seat tier, so do not select Fable silently.
 - Use `sonnet` when speed and subscription allowance matter more than maximum quality. Use `haiku` only for simple, mechanical work.
 
 For a reproducible comparison, pass a full model ID instead of a moving alias. When current availability matters, use Claude Code's interactive `/model` picker. To verify what an alias actually used, add `--json` and inspect `modelUsage`. Do not treat a model list in the README as live account state.

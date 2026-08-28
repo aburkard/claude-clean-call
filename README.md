@@ -16,7 +16,7 @@ The useful choices are:
 - `sonnet`: a faster, lighter general-purpose choice
 - `haiku`: simple mechanical work
 
-Choose a model with `--model`. Use a full model ID when a comparison needs to be reproducible. Use Claude Code's `/model` picker for the current catalog; this list is guidance, not account discovery. Fable can consume usage credits on standard Team seats.
+Choose a model with `--model`. Use a full model ID when a comparison needs to be reproducible. Use Claude Code's `/model` picker for the current catalog; this list is guidance, not account discovery. Fable uses pay-as-you-go credits on standard Team seats. Premium Team seats include limited Fable usage in their weekly allowance. Claude's auth status does not reveal which seat tier you have.
 
 ## Install
 
