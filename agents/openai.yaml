@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Clean Call"
+  short_description: "Ask Claude without its coding-agent prompt"
+  default_prompt: "Use $claude-clean-call to get a clean second opinion from Claude."
