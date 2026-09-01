@@ -12,11 +12,14 @@ The useful choices are:
 
 - `claude-opus-4-6`: the writing default
 - `opus`: the latest Opus for reasoning and general judgment; verified as Opus 5 on 2026-08-27
-- `fable`: the latest Fable for an occasional high-stakes second opinion; verified as Fable 5 on 2026-08-27
+- `claude-fable-5-1`: Fable 5.1 for an occasional high-stakes second opinion; requires Claude Code 2.1.250 or newer
+- `fable`: the shorter selector, which still resolved to Fable 5 when tested on 2026-09-01
 - `sonnet`: a faster, lighter general-purpose choice
 - `haiku`: simple mechanical work
 
 Choose a model with `--model`. Use a full model ID when a comparison needs to be reproducible. Use Claude Code's `/model` picker for the current catalog; this list is guidance, not account discovery. Fable uses pay-as-you-go credits on standard Team seats. Premium Team seats include limited Fable usage in their weekly allowance. Claude's auth status does not reveal which seat tier you have.
+
+Fable 5.1 was tested successfully with Claude Code 2.1.252. On release day, the CLI printed an `unrecognized_model` warning before completing the call and reporting `claude-fable-5-1` as the canonical model.
 
 ## Install
 
